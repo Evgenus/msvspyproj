@@ -26,7 +26,6 @@ It is usefull when:
  - it is easy for you to manage files not by VS but some file-manager;
  - you can't put project file directly into repository.
 
-
 Getting started
 ---------------
 
@@ -73,3 +72,8 @@ some trials and other stuff. I put something like that to that stuff.
         msvspyproj.magick() 
 
 After every launch of tests my project is about to be checked and updated.
+
+Dependencies
+------------
+
+ - [lxml](http://lxml.de/) for processing VS project files
