@@ -1,7 +1,7 @@
 msvspyproj
 ==========
 
-MS VisualStudio Python Project Helper
+MS Visual Studio Python Project Helper
 
 About
 -----
@@ -37,6 +37,8 @@ Getting started
  - include rule; [plus][one or more spaces][wildcart]
  - exclude rule; [minus][one or more spaces][wildcart]
  - comment. [sharp][anything]
+
+Remember _order in this rules is important_. First rule that matches filepath - wins.
 
 The example could be found right here in this project. Last time I saw it, it looks like that:
 
