@@ -32,6 +32,8 @@
     <Compile Include="msvspyproj\config.py"/>
     <Compile Include="msvspyproj\project.py"/>
     <Compile Include="setup.py"/>
+    <Compile Include="setup_freeze.py"/>
+    <Compile Include="setup_py2exe.py"/>
   </ItemGroup>
   <ItemGroup>
     <Content Include="COPYING.LESSER"/>

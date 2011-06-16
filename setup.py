@@ -1,5 +1,3 @@
-from setuptools import setup
-
 params = dict(
     name='msvspyproj',
     version='0.1.0',
@@ -22,31 +20,6 @@ params = dict(
         },
     )
 
-try:
-    import py2exe
-except ImportError:
-    pass
-else:
-    params.update(
-        console=[
-            dict(
-                script="exe.py",
-                icon_resources=[],
-                bitmap_resources=[],
-                other_resources=[],
-                dest_base=params['name'],
-                version=params['version'],
-                company_name=params['author'],
-                copyright=params['author'],
-                name=params['name'],
-                ),
-            ],
-        options = {
-            "py2exe": {
-                "includes": ['lxml._elementpath', 'gzip'], 
-                } 
-            }
-        )
-
-setup(**params)
-
+if __name__ == "__main__":
+    from setuptools import setup
+    setup(**params)
