@@ -1,4 +1,4 @@
-# This file is my playground
+# This file is entry point for py2exe
 
 import msvspyproj
 

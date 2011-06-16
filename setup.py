@@ -1,6 +1,7 @@
 from setuptools import setup
 
-setup(name='msvspyproj',
+params = dict(
+    name='msvspyproj',
     version='0.1.0',
     description="Tools for MS Visual Studio project files manipulation",
     long_description="Observes files in current directory subtree accordingly to config files and tries to keep project file up to date",    
@@ -20,4 +21,32 @@ setup(name='msvspyproj',
         'console_scripts': ['msvspyproj = msvspyproj:main'],
         },
     )
+
+try:
+    import py2exe
+except ImportError:
+    pass
+else:
+    params.update(
+        console=[
+            dict(
+                script="exe.py",
+                icon_resources=[],
+                bitmap_resources=[],
+                other_resources=[],
+                dest_base=params['name'],
+                version=params['version'],
+                company_name=params['author'],
+                copyright=params['author'],
+                name=params['name'],
+                ),
+            ],
+        options = {
+            "py2exe": {
+                "includes": ['lxml._elementpath', 'gzip'], 
+                } 
+            }
+        )
+
+setup(**params)
 

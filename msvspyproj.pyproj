@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -24,4 +24,22 @@
     <DebugSymbols>true</DebugSymbols>
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
-  <ItemGroup><Compile Include="msvspyproj\__main__.py"/><Compile Include="msvspyproj\__init__.py"/><Compile Include="msvspyproj\config.py"/><Compile Include="setup.py"/><Compile Include="msvspyproj\project.py"/><Compile Include="main.py"/></ItemGroup><ItemGroup><Content Include="COPYING.LESSER"/><Content Include="proj.conf"/><Content Include="README.md"/><Content Include="LICENSE.txt"/></ItemGroup><ItemGroup><Folder Include="msvspyproj"/></ItemGroup></Project>
+  <ItemGroup>
+    <Compile Include="exe.py"/>
+    <Compile Include="main.py"/>
+    <Compile Include="msvspyproj\__init__.py"/>
+    <Compile Include="msvspyproj\__main__.py"/>
+    <Compile Include="msvspyproj\config.py"/>
+    <Compile Include="msvspyproj\project.py"/>
+    <Compile Include="setup.py"/>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="COPYING.LESSER"/>
+    <Content Include="LICENSE.txt"/>
+    <Content Include="README.md"/>
+    <Content Include="proj.conf"/>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="msvspyproj"/>
+  </ItemGroup>
+</Project>

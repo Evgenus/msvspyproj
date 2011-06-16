@@ -20,7 +20,11 @@ class PyProject(object):
     source_ext = {'.py'}
     def __init__(self, filename):
         self.filename = filename
-        self.tree = etree.parse(filename)
+        self.parser = etree.XMLParser(
+            remove_blank_text=True,
+            ns_clean=True,
+            )
+        self.tree = etree.parse(filename, self.parser)
         project_dir = os.path.dirname(filename)
         project_home = self.rule_projecthome(self.tree)[0].text
         self.projecthome = os.path.join(project_dir, project_home)
@@ -48,30 +52,31 @@ class PyProject(object):
         for container in self.rule_folders(self.tree):
             container.getparent().remove(container)
         compile = etree.SubElement(self.tree.getroot(), 'ItemGroup')
-        for file in self.sources:
+        for file in sorted(self.sources):
             name, ext = os.path.splitext(file)
             if ext in self.source_ext:
                 path = os.path.relpath(file, self.projecthome)
-                compile.append(etree.Element('Compile', Include=path))
+                etree.SubElement(compile, 'Compile', Include=path)
         content = etree.SubElement(self.tree.getroot(), 'ItemGroup')
-        for file in self.sources:
+        for file in sorted(self.sources):
             name, ext = os.path.splitext(file)
             if ext not in self.source_ext:
                 path = os.path.relpath(file, self.projecthome)
-                content.append(etree.Element('Content', Include=path))
+                etree.SubElement(content, 'Content', Include=path)
         folders = etree.SubElement(self.tree.getroot(), 'ItemGroup')
         paths = set()
-        for file in self.sources:
+        for file in sorted(self.sources):
             path = os.path.relpath(file, self.projecthome)
             path = os.path.dirname(path)
             while path and path not in paths:
                 paths.add(path)
-                folders.append(etree.Element('Folder', Include=path))
+                etree.SubElement(folders, 'Folder', Include=path)
                 path = os.path.dirname(path)
         self.tree.write(self.filename, 
-            encoding='utf-8', 
+            encoding='UTF-8', 
             xml_declaration=True, 
             pretty_print=True)
     def __bool__(self):
+        return True
         return bool(self.toremove) or bool(self.toadd)
     __nonzero__ = __bool__
