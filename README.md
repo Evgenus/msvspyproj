@@ -34,8 +34,8 @@ Getting started
 **2. Create a config.** It is better to call it `proj.conf`. Each line of config file could be:
 
  - empty line;
- - include rule; [plus][one or more spaces][wildcart]
- - exclude rule; [minus][one or more spaces][wildcart]
+ - include rule; [plus][one or more spaces][wildcard]
+ - exclude rule; [minus][one or more spaces][wildcard]
  - comment. [sharp][anything]
 
 Remember _order in this rules is important_. First rule that matches filepath - wins.
@@ -78,4 +78,5 @@ After every launch of tests my project is about to be checked and updated.
 Dependencies
 ------------
 
+ - [pythontools](http://pytools.codeplex.com/) plugin for MSVS (Now can make projects only for that)
  - [lxml](http://lxml.de/) for processing VS project files
