@@ -77,6 +77,5 @@ class PyProject(object):
             xml_declaration=True, 
             pretty_print=True)
     def __bool__(self):
-        return True
         return bool(self.toremove) or bool(self.toadd)
     __nonzero__ = __bool__
