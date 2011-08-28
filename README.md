@@ -18,7 +18,7 @@ See `LICENSE` file.
 Why?
 ----
 
-It is usefull when:
+It is useful  when:
 
  - you are using MSVS of course;
  - you are using some version control system and files could be added/removed from your project externally;
